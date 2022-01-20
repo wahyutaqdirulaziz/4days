@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Order_items extends Model
 {
     use HasFactory;
+    protected $table = ['customer','subtotal','discount','total','date'];
 }

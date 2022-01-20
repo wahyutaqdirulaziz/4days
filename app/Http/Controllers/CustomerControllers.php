@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class CustomerControllers extends Controller
@@ -13,7 +13,8 @@ class CustomerControllers extends Controller
      */
     public function index()
     {
-        //
+        $customers = Customer::all();
+        return view('customer.index',compact('customers'));
     }
 
     /**
@@ -23,7 +24,7 @@ class CustomerControllers extends Controller
      */
     public function create()
     {
-        //
+        return view('customer.create');
     }
 
     /**
@@ -56,7 +57,7 @@ class CustomerControllers extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('customer.edit');
     }
 
     /**
