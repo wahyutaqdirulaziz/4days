@@ -9,12 +9,16 @@
                 <div class="card-body">
                     <div class="d-flex text-muted">
                         <div class="flex-shrink-0 me-3 align-self-center">
-                            <div id="radialchart-1" class="apex-charts" dir="ltr"></div>
+                            <div class="avatar-sm">
+                                <div class="avatar-title bg-light rounded-circle text-primary font-size-20">
+                                    <i class="ri-group-line"></i>
+                                </div>
+                            </div>
                         </div>
                         <div class="flex-grow-1 overflow-hidden">
                             <p class="mb-1">Users</p>
-                            <h5 class="mb-3">2.2k</h5>
-                            <p class="text-truncate mb-0"><span class="text-success me-2"> 0.02% <i class="ri-arrow-right-up-line align-bottom ms-1"></i></span> From previous</p>
+                            <h5 class="mb-3">{{  $user }}</h5>
+                          
                         </div>
                     </div>
                 </div>
@@ -29,12 +33,16 @@
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="flex-shrink-0 me-3 align-self-center">
-                            <div id="radialchart-2" class="apex-charts" dir="ltr"></div>
+                            <div class="avatar-sm">
+                                <div class="avatar-title bg-light rounded-circle text-primary font-size-20">
+                                    <i class="ri-group-line"></i>
+                                </div>
+                            </div>
                         </div>
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="mb-1">Views per minute</p>
-                            <h5 class="mb-3">50</h5>
-                            <p class="text-truncate mb-0"><span class="text-success me-2"> 1.7% <i class="ri-arrow-right-up-line align-bottom ms-1"></i></span> From previous</p>
+                            <p class="mb-1">Customer</p>
+                            <h5 class="mb-3">{{  $cus }}</h5>
+                          
                         </div>
                     </div>
                 </div>
@@ -49,12 +57,16 @@
                 <div class="card-body">
                     <div class="d-flex text-muted">
                         <div class="flex-shrink-0 me-3 align-self-center">
-                            <div id="radialchart-3" class="apex-charts" dir="ltr"></div>
+                            <div class="avatar-sm">
+                                <div class="avatar-title bg-light rounded-circle text-primary font-size-20">
+                                    <i class="mdi mdi-cube"></i>
+                                </div>
+                            </div>
                         </div>
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="mb-1">Bounce Rate</p>
-                            <h5 class="mb-3">24.03 %</h5>
-                            <p class="text-truncate mb-0"><span class="text-danger me-2"> 0.01% <i class="ri-arrow-right-down-line align-bottom ms-1"></i></span> From previous</p>
+                            <p class="mb-1">Item</p>
+                            <h5 class="mb-3">{{  $item }}</h5>
+                           
                         </div>
                     </div>                                        
                 </div>
@@ -71,14 +83,14 @@
                         <div class="flex-shrink-0  me-3 align-self-center">
                             <div class="avatar-sm">
                                 <div class="avatar-title bg-light rounded-circle text-primary font-size-20">
-                                    <i class="ri-group-line"></i>
+                                    <i class="mdi mdi-cube"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="mb-1">New Visitors</p>
-                            <h5 class="mb-3">435</h5>
-                            <p class="text-truncate mb-0"><span class="text-success me-2"> 0.01% <i class="ri-arrow-right-up-line align-bottom ms-1"></i></span> From previous</p>
+                            <p class="mb-1">Order</p>
+                            <h5 class="mb-3">{{  $order }}</h5>
+                           
                         </div>
                     </div>
                 </div>

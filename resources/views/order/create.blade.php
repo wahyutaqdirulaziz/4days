@@ -8,6 +8,9 @@
             </div>
         </div>
     </div>
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">{{ $message }}</div>
+@endif
     <div class="row">
         <div class="col-mb-12">
             <div class="card mb-2">
@@ -105,7 +108,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td>Rp {{ number_format($item->price * $item->qty) }}</td>
                                         <td> <form action="{{ route('add-update') }}" method="POST">
-                                            @csrf <input type="number"  name="quantity" value="{{ $item->qty }}" 
+                                            @csrf <input type="number"  name="qty" value="{{ $item->qty }}" 
                                             class="text-center form-control form-control-sm col-md-1" /></td>
                                        <th> 
                                         <input type="hidden" name="id" value="{{ $item->id}}" >
@@ -113,7 +116,7 @@
                                       <div class="btn-group">
                                              
                                                    
-                                        <button type="submit" title="delete" class="btn btn-primary btn-sm waves-effect waves-light" title="Hapus">
+                                        <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">
                                             Update
                                         </button>
                                  

@@ -10,22 +10,13 @@
             </a>
         </li>
 
-        {{-- @hasrole('General Affair') --}}
-          
-        {{-- @endhasrole
-
-        @hasrole('Manager Project|Manager Finance|Manager HRD & GA') --}}
-
-        {{-- @endhasrole --}}
-
-        {{-- @hasrole('Administrator') --}}
             <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                     <i class="mdi mdi-cube"></i>
                     <span>Item</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="{{ route('items.index') }}">List Item</a></li>
+                    <li><a href="{{ route('items.index') }}">Item</a></li>
                 </ul>
             </li>
 
@@ -35,7 +26,7 @@
                     <span>  Order</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="{{ route('Order.index') }}">List Stock</a></li>
+                    <li><a href="{{ route('Order.index') }}">Orders</a></li>
                 
                 </ul>
             </li>
@@ -62,14 +53,13 @@
                     <span>Report</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="pages-starter.html">Sales</a></li>
-                    <li><a href="pages-maintenance.html">Project</a></li>
-                    <li><a href="pages-comingsoon.html">Accounting</a></li>
+                    <li><a href="{{ route('order-report') }}">Report Order</a></li>
+                    <li><a href="{{ route('order-customer') }}">Report Customer</a></li>
+                    <li><a href="{{ route('order-item') }}">Report Item</a></li>
                 
                 </ul>
             </li>
            
-        {{-- @endhasrole --}}
 
      
     </ul>

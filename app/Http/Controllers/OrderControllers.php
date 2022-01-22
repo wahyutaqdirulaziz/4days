@@ -84,65 +84,28 @@ class OrderControllers extends Controller
     }   
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $order = Order::find($id);
-        return view('order.edit',compact('order'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
     public function addToCart(Request $request)
     {
-        \Cart::add([
-            'id' => $request->id,
-            'name' => $request->name,
-            'price' => $request->price,
-            'qty' => $request->qty,   
-            'attributes' => array(
-                'code' => $request->code,
-            )
-        ]);
-        session()->flash('success', 'Product is Added to Cart Successfully !');
+        $items = Item::find($request->id);
 
+        if($items->qty > 1){
+            \Cart::add([
+                'id' => $request->id,
+                'name' => $request->name,
+                'price' => $request->price,
+                'qty' => $request->qty,   
+                'attributes' => array(
+                    'code' => $request->code,
+                )
+            ]);
+            session()->flash('success', 'Product is Added to Cart Successfully !');
+    
+            return redirect()->route('Order.create');
+        }
+        session()->flash('success', 'Stock item kurang !');
+    
         return redirect()->route('Order.create');
     }
 

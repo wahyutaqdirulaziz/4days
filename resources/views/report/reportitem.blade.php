@@ -14,13 +14,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0">Order</h4>
-
-                <div class="page-title-right">
-                    <div class="button-items">
-                        <a href="{{ route('Order.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle-multiple"></i>  Add Orders</a>
-                    </div>
-                </div>
+                <h4 class="mb-sm-0">Report Order</h4>
             </div>
         </div>
     </div>
@@ -35,19 +29,26 @@
                     <table id="datatable" class="table dt-responsive nowrap datatables" style="border-collapse: collapse; border-spacing: 0; width: 100%;" >
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Customer</th>
-                                <th>date</th>
+                               
+                                <th>item</th>
+                                <th>item name</th>
+                                <th>qty</th>
+                                <th>avg</th>
                                 <th>total</th>
+                              
                             </tr>
                         </thead>
                         <tbody >
-                            @foreach ($Orders as $customer)
+                            @foreach ($order as $orders)
                                 <tr>
-                                    <td></td>
-                                    <td>{{  $customer->customer }}</td>
-                                    <td>{{  $customer->date }}</td>
-                                    <td>Rp {{ number_format($customer->total) }}</td>
+                                  
+                                    <td>{{  $orders->code }}</td>
+                                    <td>{{  $orders->items_name }}</td>
+                                    <td>{{  $orders->totalqty }}</td>
+                                    <td>Rp {{ number_format($orders->totalpriceavg) }}</td>
+                                 
+                                    <td>Rp {{ number_format($orders->totalprice) }}</td>
+                                   
                                 </tr>
                             @endforeach
                         </tbody>
@@ -81,9 +82,6 @@
     <script>
         $(document).ready( function () {
             $('#datatable').DataTable( {
-                "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-                    $('td:eq(0)', nRow).html(iDisplayIndexFull +1);
-                }
             });
         });
    </script>
