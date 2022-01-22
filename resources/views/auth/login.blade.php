@@ -32,12 +32,12 @@
                                 <div class="">
                                     <div class="text-center">
                                         <a href="#" class="">
-                                            <img src="https://picosd.com/img/logo/logo_pico2.png" alt="" width="24%" class="auth-logo logo-dark mx-auto">
-                                            <img src="https://picosd.com/img/logo/logo_pico2.png" alt="" width="24%" class="auth-logo logo-light mx-auto">
+                                            <img src="{{ asset('assets/images/logo-dark.png')}}" alt=""class="auth-logo logo-dark mx-auto">
+                                            <img src="{{ asset('assets/images/logo-light.png')}}" alt="" class="auth-logo logo-light mx-auto">
                                         </a>
                                     </div>
                                     <!-- end row -->
-                                    <h4 class="font-size-18 text-muted mt-2 text-center">4Days</h4>
+                                  
                                     <p class="mb-5 text-center">Sign in to continue to Upzet.</p>
                                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                                         @csrf

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0">Edit Brand</h4>
+                <h4 class="mb-sm-0">Edit Customers</h4>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
                     <form action="{{ route('customers.update', $customer->id) }}" method="post">
                         @csrf
                         @method('PUT')
-                        @include('brand.field')
+                        @include('customer.field')
                         <div class="mb-3 row">
                             <div class="col-md-2 col-form-label"></div>
                             <div class="col-md-10">

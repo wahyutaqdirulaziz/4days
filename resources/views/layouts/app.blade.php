@@ -34,19 +34,19 @@
                         <div class="navbar-brand-box text-center">
                             <a href="index.html" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('assets/images/log.png')}}" alt="logo-sm-dark" height="22">
+                                    <img src="{{ asset('assets/images/logo-sm.png')}}" alt="logo-sm-dark" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('assets/images/logo1.png')}}" alt="logo-dark" height="30">
+                                    <img src="{{ asset('assets/images/logo-dark.png')}}" alt="logo-dark" height="30">
                                 </span>
                             </a>
 
                             <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('assets/images/log.png')}}" alt="logo-sm-light" height="22">
+                                    <img src="{{ asset('assets/images/logo-sm.png')}}" alt="logo-sm-light" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('assets/images/logo1.png')}}" alt="logo-light" height="30">
+                                    <img src="{{ asset('assets/images/logo-light.png')}}" alt="logo-light" height="30">
                                 </span>
                             </a>
                         </div>

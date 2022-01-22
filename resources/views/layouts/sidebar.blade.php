@@ -15,20 +15,7 @@
         {{-- @endhasrole
 
         @hasrole('Manager Project|Manager Finance|Manager HRD & GA') --}}
-            <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="mdi mdi-email-outline"></i>
-                    <span>Inventory</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="#">List Stock</a></li>
-                    <li><a href="#">Stock in</a></li>
-                    <li><a href="#">Stock out</a></li>
-                    <li><a href="#">Return</a></li>
-                    <li><a href="#">Stock opname</a></li>
-                    <li><a href="#">Approval</a></li>
-                </ul>
-            </li>
+
         {{-- @endhasrole --}}
 
         {{-- @hasrole('Administrator') --}}
@@ -38,12 +25,7 @@
                     <span>Item</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="#">List Item</a></li>
-                    <li><a href="#">Unit</a></li>
-                    <li><a href="#">Brand</a></li>
-                    <li><a href="#">Category</a></li>
-                    <li><a href="#">Subcategory</a></li>
-                    <li><a href="#">Warehouse</a></li>
+                    <li><a href="{{ route('items.index') }}">List Item</a></li>
                 </ul>
             </li>
 
@@ -53,12 +35,8 @@
                     <span>  Order</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="#">List Stock</a></li>
-                    <li><a href="#">Stock in</a></li>
-                    <li><a href="#">Stock out</a></li>
-                    <li><a href="#">Return</a></li>
-                    <li><a href="#">Stock opname</a></li>
-                    <li><a href="#">Approval</a></li>
+                    <li><a href="{{ route('Order.index') }}">List Stock</a></li>
+                
                 </ul>
             </li>
 
@@ -69,12 +47,14 @@
                     <span>Customer</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="auth-login.html">Purchase Order</a></li>
-                    <li><a href="auth-register.html">Invoice</a></li>
-                    <li><a href="auth-recoverpw.html">Expense</a></li>
-                    <li><a href="auth-lock-screen.html">Payment</a></li>
+                    <li><a href="{{ route('customers.index') }}">Customer</a></li>
+                 
                 </ul>
             </li>
+
+         
+
+            <li class="menu-title">Report</li>
 
             <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -88,21 +68,6 @@
                 
                 </ul>
             </li>
-
-            <li class="menu-title">Settings</li>
-
-            <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-account-circle-fill"></i>
-                    <span>Users Management</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                    <li><a href="#">Users</a></li>
-                    <li><a href="#">Role</a></li>
-                    <li><a href="#">Permission</a></li>
-                </ul>
-            </li>
-
            
         {{-- @endhasrole --}}
 

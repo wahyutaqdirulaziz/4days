@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use DB;
 
 class CustomerControllers extends Controller
 {
@@ -35,7 +36,19 @@ class CustomerControllers extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        // dd($input);
+        DB::beginTransaction();
+        try {
+          
+            $customers = Customer::create($input);
+            DB::commit();
+       
+            return redirect(route('customers.index'))->with('success', 'customers berhasil ditambahkan');
+        } catch (Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'Terjadi kesalahan, silahkan coba lagi nanti');
+        }
     }
 
     /**
@@ -57,7 +70,8 @@ class CustomerControllers extends Controller
      */
     public function edit($id)
     {
-        return view('customer.edit');
+        $customer = Customer::find($id);
+        return view('customer.edit',compact('customer'));
     }
 
     /**
@@ -69,7 +83,19 @@ class CustomerControllers extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        // dd($input);
+        DB::beginTransaction();
+        try {
+            $customers = Customer::find($id);
+            $customers->update($input);
+            DB::commit();
+       
+            return redirect(route('customers.index'))->with('success', 'customers berhasil di update');
+        } catch (Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'Terjadi kesalahan, silahkan coba lagi nanti');
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
     }
 
     /**
@@ -80,6 +106,8 @@ class CustomerControllers extends Controller
      */
     public function destroy($id)
     {
-        //
+        Customer::find($id)->delete();
+        return redirect()->route('customers.index')
+                            ->with('success','customers delete successfully');
     }
 }

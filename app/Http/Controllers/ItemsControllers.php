@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Item;
 use Illuminate\Http\Request;
+use DB;
 
 class ItemsControllers extends Controller
 {
@@ -11,9 +12,10 @@ class ItemsControllers extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()   
     {
-        //
+        $items = Item::all();
+        return view('item.index',compact('items'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ItemsControllers extends Controller
      */
     public function create()
     {
-        //
+        return view('item.create');
     }
 
     /**
@@ -34,7 +36,19 @@ class ItemsControllers extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        // dd($input);
+        DB::beginTransaction();
+        try {
+          
+            $items = Item::create($input);
+            DB::commit();
+       
+            return redirect(route('items.index'))->with('success', 'items berhasil ditambahkan');
+        } catch (Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'Terjadi kesalahan, silahkan coba lagi nanti');
+        }
     }
 
     /**
@@ -56,7 +70,8 @@ class ItemsControllers extends Controller
      */
     public function edit($id)
     {
-        //
+        $items = Item::find($id);
+        return view('item.edit',compact('items'));
     }
 
     /**
@@ -68,7 +83,19 @@ class ItemsControllers extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        // dd($input);
+        DB::beginTransaction();
+        try {
+            $items = Item::find($id);
+            $items->update($input);
+            DB::commit();
+       
+            return redirect(route('items.index'))->with('success', 'items berhasil di update');
+        } catch (Exception $e) {
+            DB::rollBack();
+            return back()->with('error', 'Terjadi kesalahan, silahkan coba lagi nanti');
+        }            
     }
 
     /**
@@ -79,6 +106,8 @@ class ItemsControllers extends Controller
      */
     public function destroy($id)
     {
-        //
+        Item::find($id)->delete();
+        return redirect()->route('items.index')
+                            ->with('success','items delete successfully');
     }
 }
