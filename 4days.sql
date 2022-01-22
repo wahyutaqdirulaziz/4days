@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2022 at 01:47 AM
+-- Generation Time: Jan 22, 2022 at 06:47 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -41,7 +41,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `kode`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'wahyu lombok', '012', NULL, '2022-01-20 08:14:54', '2022-01-20 08:18:24');
+(1, 'customer 1', '012', NULL, '2022-01-20 08:14:54', '2022-01-21 21:10:53'),
+(2, 'customer 2', '002', NULL, '2022-01-21 19:43:34', '2022-01-21 21:11:05');
 
 -- --------------------------------------------------------
 
@@ -81,9 +82,8 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `code`, `name`, `price`, `qty`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(3, '001', 'baju', '1000.000', 3, NULL, '2022-01-21 06:33:30', '2022-01-21 09:37:29'),
-(4, '002', 'celana', '2000.000', 18, NULL, '2022-01-21 08:28:26', '2022-01-21 09:37:29'),
-(5, '003', 'sepatu', '2000.000', 18, NULL, '2022-01-21 08:28:50', '2022-01-21 09:37:29');
+(4, '002', 'celana', '2000.000', 8, NULL, '2022-01-21 08:28:26', '2022-01-21 21:25:23'),
+(5, '003', 'sepatu', '2000.000', 17, NULL, '2022-01-21 08:28:50', '2022-01-21 19:44:20');
 
 -- --------------------------------------------------------
 
@@ -129,14 +129,6 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `customer`, `subtotal`, `discount`, `total`, `date`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(11, '012', '2000.00000', 0, '2000.00000', '2022-01-22', NULL, '2022-01-21 06:34:06', '2022-01-21 06:34:06'),
-(14, '012', '9000.00000', 50, '4500.00000', '2022-01-21', NULL, '2022-01-21 09:37:29', '2022-01-21 09:37:29');
-
 -- --------------------------------------------------------
 
 --
@@ -151,19 +143,9 @@ CREATE TABLE `order_items` (
   `price` decimal(20,3) NOT NULL,
   `total` decimal(20,3) NOT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `order_items`
---
-
-INSERT INTO `order_items` (`id`, `order`, `item_id`, `qty`, `price`, `total`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(3, 11, 3, 2, '1000.000', '2000.000', NULL, NULL, NULL),
-(10, 14, 3, 1, '1000.000', '1000.000', NULL, NULL, NULL),
-(11, 14, 4, 2, '2000.000', '4000.000', NULL, NULL, NULL),
-(12, 14, 5, 2, '2000.000', '4000.000', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -289,7 +271,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -313,13 +295,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
